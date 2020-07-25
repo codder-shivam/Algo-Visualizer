@@ -1,0 +1,21 @@
+.heading {
+	text-align: center;
+	color: darkolivegreen;
+	text-shadow: darkseagreen;
+}
+.barContainer {
+	border: 2px solid black;
+	scroll-margin-top: 10px;
+	border-radius: 10px;
+	background-color: cornsilk;
+	position: absolute;
+	left: 100px;
+	bottom: 50px;
+}
+
+.arrayBar {
+	width: 2px;
+	background-color: #0c3f0c;
+	display: inline-block;
+	margin: 0 1px;
+}

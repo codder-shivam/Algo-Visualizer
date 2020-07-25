@@ -1,7 +1,13 @@
-//import React from 'react';
+import React from 'react';
 
-// const Buttoncomponent = (
-//     <button >
-//         click me
-//     </button>
-// );
+export const ButtonComponent = (props) => {
+	return (
+		<button
+			style={{
+				color: 'green',
+				position: 'absolute',
+			}}>
+			{props.buttonLabel}
+		</button>
+	);
+};

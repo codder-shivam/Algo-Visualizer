@@ -1,33 +1,15 @@
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
 //import pathFinder from './Main/pathfinder';
-import Rough from './Rough'; 
+import Visualizer from './Components/Visualizer';
 
-  class App extends Component {
-    render(){
-    //function Compo(){
-      return (
-        //<h1> Hello world !!!</h1>
-        //<pathFinder/>
-        <Rough name="blaah"></Rough>
-      );
-    }
-  }
+class App extends Component {
+	render() {
+		return <Visualizer />;
+	}
+}
 
-  export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default App;
 
 // import React from 'react';
 // import logo from './logo.svg';

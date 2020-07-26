@@ -24,6 +24,12 @@ class Visualizer extends Component {
 		this.resetArray();
 	}
 
+	mergeSort() {
+		const sortedArr = this.state.arr;
+		sortedArr.sort((a, b) => a - b);
+		this.setState({ sortedArr });
+	}
+
 	render() {
 		const { arr } = this.state;
 

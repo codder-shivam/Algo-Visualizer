@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import './Visualizer.css';
-import { ButtonComponent } from './button';
+//import { ButtonComponent } from './button';
 
 class Visualizer extends Component {
 	constructor(props) {
@@ -15,7 +15,7 @@ class Visualizer extends Component {
 	resetArray() {
 		const arr = [];
 		for (let i = 5; i < 300; i++) {
-			arr.push(randomize(10, 500));
+			arr.push(randomize(10, 200));
 		}
 		this.setState({ arr });
 	}
@@ -37,12 +37,22 @@ class Visualizer extends Component {
 							style={{ height: value }}></div>
 					))}
 				</div>
-				<button onClick={() => this.resetArray() }> Reset </button>
-				<ButtonComponent buttonLabel='Merge Sort' />
-				<ButtonComponent buttonLabel='Quick Sort' />
-				<ButtonComponent buttonLabel='Heap Sort' />
-				<ButtonComponent buttonLabel='Bubble Sort' />
-				<ButtonComponent buttonLabel='Sort' />
+				<button className='button' onClick={() => this.resetArray()}>
+					Reset
+				</button>
+				<button className='button' onClick={() => this.mergeSort()}>
+					Merge Sort
+				</button>
+				<button className='button' onClick={() => this.quickSort()}>
+					Quick Sort
+				</button>
+				<button className='button' onClick={() => this.heapSort()}>
+					Heap Sort
+				</button>
+				<button className='button' onClick={() => this.bubbleSort()}>
+					Bubble Sort
+				</button>
+				<button className='button'>Sort !</button>
 			</>
 		);
 	}

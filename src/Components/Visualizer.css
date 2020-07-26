@@ -5,6 +5,7 @@
 }
 .barContainer {
 	border: 2px solid black;
+	height: 510 px;
 	scroll-margin-top: 10px;
 	border-radius: 10px;
 	background-color: cornsilk;

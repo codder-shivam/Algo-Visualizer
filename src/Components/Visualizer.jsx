@@ -37,7 +37,7 @@ class Visualizer extends Component {
 							style={{ height: value }}></div>
 					))}
 				</div>
-				<ButtonComponent buttonLabel='Reset ' />
+				<button onClick={() => this.resetArray() }> Reset </button>
 				<ButtonComponent buttonLabel='Merge Sort' />
 				<ButtonComponent buttonLabel='Quick Sort' />
 				<ButtonComponent buttonLabel='Heap Sort' />

@@ -5,7 +5,7 @@ export const ButtonComponent = (props) => {
 		<button
 			style={{
 				color: 'green',
-				position: 'absolute',
+				//position: 'absolute',
 			}}>
 			{props.buttonLabel}
 		</button>

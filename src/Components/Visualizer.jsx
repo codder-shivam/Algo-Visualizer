@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import './Visualizer.css';
-//import { ButtonComponent } from './button';
+import { ButtonComponent } from './button';
 
 class Visualizer extends Component {
 	constructor(props) {
@@ -28,11 +28,22 @@ class Visualizer extends Component {
 		const { arr } = this.state;
 
 		return (
-			<div className='barContainer'>
-				{arr.map((value, index) => (
-					<div className='arrayBar' key={index} style={{ height: value }}></div>
-				))}
-			</div>
+			<>
+				<div className='barContainer'>
+					{arr.map((value, index) => (
+						<div
+							className='arrayBar'
+							key={index}
+							style={{ height: value }}></div>
+					))}
+				</div>
+				<ButtonComponent buttonLabel='Reset ' />
+				<ButtonComponent buttonLabel='Merge Sort' />
+				<ButtonComponent buttonLabel='Quick Sort' />
+				<ButtonComponent buttonLabel='Heap Sort' />
+				<ButtonComponent buttonLabel='Bubble Sort' />
+				<ButtonComponent buttonLabel='Sort' />
+			</>
 		);
 	}
 }

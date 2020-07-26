@@ -1,22 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Rough extends Component {
-	render() {
-		return (
-			<React.Fragment>
-				<h1>hello {this.props.name} .... </h1>
-
-				<div className='shopping-list'>
-					<h3>Shopping List for {this.props.name}</h3>
-					<ul>
-						<li>Instagram</li>
-						<li>WhatsApp</li>
-						<li>Oculus</li>
-					</ul>
-				</div>
-			</React.Fragment>
-		);
+function solve(arr) {
+	for (let i = 0; i < arr.length; i++) {
+		//setTimeout(() => {
+		console.log(arr[i]);
+		//}, 1000);
 	}
 }
 
+function Rough() {
+	const arr = [1, 2, 3, 4, 5];
+
+	return <button onClick={solve(arr)}> click me</button>;
+}
+
 export default Rough;
+//import { ButtonComponent } from './button';

@@ -1,7 +1,10 @@
 import React from 'react';
 import { Component } from 'react';
 import './Visualizer.css';
-//import { ButtonComponent } from './button';
+import MergeSort from '../Algorithms/MergeSort';
+import QuickSort from '../Algorithms/QuickSort';
+import HeapSort from '../Algorithms/HeapSort';
+import BubbleSort from '../Algorithms/BubbleSort';
 
 class Visualizer extends Component {
 	constructor(props) {
@@ -14,20 +17,15 @@ class Visualizer extends Component {
 
 	resetArray() {
 		const arr = [];
-		for (let i = 5; i < 300; i++) {
-			arr.push(randomize(10, 200));
+		for (let i = 5; i < 200; i++) {
+			arr.push(randomize(10, 500));
 		}
+
 		this.setState({ arr });
 	}
 
 	componentDidMount() {
 		this.resetArray();
-	}
-
-	mergeSort() {
-		const sortedArr = this.state.arr;
-		sortedArr.sort((a, b) => a - b);
-		this.setState({ sortedArr });
 	}
 
 	render() {
@@ -46,19 +44,18 @@ class Visualizer extends Component {
 				<button className='button' onClick={() => this.resetArray()}>
 					Reset
 				</button>
-				<button className='button' onClick={() => this.mergeSort()}>
+				<button className='button' onClick={() => MergeSort(this.state.arr)}>
 					Merge Sort
 				</button>
-				<button className='button' onClick={() => this.quickSort()}>
+				<button className='button' onClick={() => QuickSort(this.state.arr)}>
 					Quick Sort
 				</button>
-				<button className='button' onClick={() => this.heapSort()}>
+				<button className='button' onClick={() => HeapSort(this.state.arr)}>
 					Heap Sort
 				</button>
-				<button className='button' onClick={() => this.bubbleSort()}>
+				<button className='button' onClick={() => BubbleSort(this.state.arr)}>
 					Bubble Sort
 				</button>
-				<button className='button'>Sort !</button>
 			</>
 		);
 	}

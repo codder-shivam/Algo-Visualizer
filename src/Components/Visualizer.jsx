@@ -65,4 +65,12 @@ function randomize(start, end) {
 	return Math.floor(Math.random() * (end - start + 1) + start);
 }
 
+const printFinal = () => {
+	const arr = this.state.arr;
+	for (let i = 0; i < arr.length; i++) {
+		let arrBar = document.getElementsByClassName('arrayBar');
+		arrBar[i].style.backgroundColor = 'black';
+	}
+};
+
 export default Visualizer;

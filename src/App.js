@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
 //import pathFinder from './Main/pathfinder';
 import Visualizer from './Components/Visualizer';
+import './App.css';
 //import Rough from './Components/Rough';
 
 class App extends Component {

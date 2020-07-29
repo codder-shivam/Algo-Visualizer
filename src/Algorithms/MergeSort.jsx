@@ -1,9 +1,10 @@
 const SECONDARY_COLOR = 'red';
 const PRIMARY_COLOR = '#0c3f0c';
-const SPEED_MS = 0.5;
+const SPEED_MS = 10;
 
-export default (originalArr) => {
-	let arr = originalArr;
+export default (arr) => {
+	//let sorted = arr.slice().sort((a, b) => a - b);
+
 	const animations = getMergeSortAnimations(arr);
 
 	for (let i = 0; i < animations.length; i++) {
@@ -20,11 +21,14 @@ export default (originalArr) => {
 				barTwoStyle.backgroundColor = color;
 			}, i * SPEED_MS);
 		} else {
+			const [barOneIdx, newHeight] = animations[i];
+			const barOneStyle = arrayBars[barOneIdx].style;
 			setTimeout(() => {
-				const [barOneIdx, newHeight] = animations[i];
-				const barOneStyle = arrayBars[barOneIdx].style;
 				barOneStyle.height = `${newHeight}px`;
 			}, i * SPEED_MS);
+			// if (newHeight === sorted[barOneIdx]) {
+			// 	barOneStyle.backgroundColor = 'pink';
+			// }
 		}
 	}
 };
@@ -87,6 +91,14 @@ function doMerge(
 		mainArray[k++] = auxiliaryArray[j++];
 	}
 }
+
+// function printFinal(tmp) {
+// 	const arr = tmp;
+// 	for (let i = 0; i < arr.length; i++) {
+// 		let arrBar = document.getElementsByClassName('arrayBar');
+// 		arrBar[i].style.backgroundColor = 'black';
+// 	}
+// }
 
 // export function getMergeAnimationArray(array) {
 // 	const animation = [];

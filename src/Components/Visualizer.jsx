@@ -16,12 +16,12 @@ class Visualizer extends Component {
 	}
 
 	resetArray() {
-		const arr = [];
-		for (let i = 5; i < 200; i++) {
-			arr.push(randomize(10, 500));
+		const tmpArr = [];
+		for (let i = 5; i < 100; i++) {
+			tmpArr.push(randomize(10, 500));
 		}
 
-		this.setState({ arr });
+		this.setState({ arr: tmpArr });
 	}
 
 	componentDidMount() {
@@ -38,7 +38,10 @@ class Visualizer extends Component {
 						<div
 							className='arrayBar'
 							key={index}
-							style={{ height: value }}></div>
+							style={{
+								backgroundColor: '#0c3f0c',
+								height: value,
+							}}></div>
 					))}
 				</div>
 				<button className='button' onClick={() => this.resetArray()}>
@@ -64,13 +67,5 @@ class Visualizer extends Component {
 function randomize(start, end) {
 	return Math.floor(Math.random() * (end - start + 1) + start);
 }
-
-const printFinal = () => {
-	const arr = this.state.arr;
-	for (let i = 0; i < arr.length; i++) {
-		let arrBar = document.getElementsByClassName('arrayBar');
-		arrBar[i].style.backgroundColor = 'black';
-	}
-};
 
 export default Visualizer;

@@ -8,7 +8,7 @@ export default (originalArr) => {
 
 function getAnimations(arr) {
 	const animations = [];
-	if (arr.length() <= 1) return arr;
+	if (arr.length <= 1) return arr;
 	//quickSort(arr, 0, arr.length - 1, animations);
 	test();
 	return animations;
@@ -19,13 +19,12 @@ function quickSort(mainArr, start, end, animations) {
 	const pivot = findPivotBetween(mainArr, start, end, animations);
 	quickSort(mainArr, start, pivot - 1, animations);
 	quickSort(mainArr, pivot + 1, end, animations);
-	return mainArr;
 }
 
 function findPivotBetween(mainArr, start, end, animations) {
 	const pivotVal = mainArr[end];
 	let i = start - 1;
-	for (let j = start; j < end - 1; j++) {
+	for (let j = start; j < end; j++) {
 		if (mainArr[j] < pivotVal) {
 			const tempVal = mainArr[++i];
 			mainArr[i] = mainArr[j];
@@ -47,11 +46,12 @@ function test() {
 			arr.push(randomIntFromInterval(-1000, 1000));
 		}
 
-		const jsArr = arr.slice().sort((a, b) => a - b);
-
 		//change this line for different algo
 		//..........................
-		const algoArr = quickSort(arr.slice(), 0, arr.length - 1, []);
+		const algoArr = arr.slice();
+		quickSort(algoArr, 0, arr.length - 1, []);
+		const jsArr = arr.slice().sort((a, b) => a - b);
+
 		//..........................
 
 		if (!compareArr(algoArr, jsArr)) {

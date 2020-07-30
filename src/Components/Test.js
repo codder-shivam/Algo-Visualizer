@@ -2,7 +2,7 @@
 // const Arr = BubbleSort(arr.slice()); and call
 // test(algoArr); to chek working of algorithm
 
-export default (algoArr) => {
+export default function test() {
 	let val = true;
 	for (let i = 0; i < 100; i++) {
 		const arr = [];
@@ -13,6 +13,11 @@ export default (algoArr) => {
 
 		const jsArr = arr.slice().sort((a, b) => a - b);
 
+		//change this line for different algo
+		//..........................
+		const algoArr = arr.slice();
+		//..........................
+
 		if (!compareArr(algoArr, jsArr)) {
 			val = false;
 			break;
@@ -20,7 +25,7 @@ export default (algoArr) => {
 	}
 	if (val) console.log('sexyyyy Algo !');
 	else console.log('Broken Algorithm');
-};
+}
 
 function compareArr(arr1, arr2) {
 	if (arr1.length !== arr2.length) return false;

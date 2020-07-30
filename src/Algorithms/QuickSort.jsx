@@ -1,30 +1,39 @@
 const SECONDARY_COLOR = 'red';
 const PRIMARY_COLOR = '#0c3f0c';
-const SPEED_MS = 0;
+const SPEED_MS = 2;
 
 export default (originalArr) => {
 	const animations = getAnimations(originalArr);
+	let color = PRIMARY_COLOR;
+
 	for (let i = 0; i < animations.length; i++) {
 		const arrayBars = document.getElementsByClassName('arrayBar');
+		const barOneStyle = arrayBars[animations[i][0]].style;
+		const barTwoStyle = arrayBars[animations[i][1]].style;
 
-		const [barOneIdx, barTwoIdx] = animations[i];
-		const barOneStyle = arrayBars[barOneIdx].style;
-		const barTwoStyle = arrayBars[barTwoIdx].style;
-		const color = i % 2 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
-
-		setTimeout(() => {
-			barOneStyle.backgroundColor = color;
-			barTwoStyle.backgroundColor = color;
-		}, i * SPEED_MS);
+		if (animations[i].length <= 2) {
+			const cur_color =
+				color === PRIMARY_COLOR ? SECONDARY_COLOR : PRIMARY_COLOR;
+			setTimeout(() => {
+				barOneStyle.backgroundColor = cur_color;
+				barTwoStyle.backgroundColor = cur_color;
+			}, i * SPEED_MS);
+			color = cur_color;
+		} else {
+			const [barOneHeight, barTwoHeight] = [animations[i][2], animations[i][3]];
+			setTimeout(() => {
+				barOneStyle.height = `${barOneHeight}px`;
+				barTwoStyle.height = `${barTwoHeight}px`;
+			}, i * SPEED_MS);
+		}
 	}
-	console.log(typeof animations);
 };
 
 function getAnimations(arr) {
 	const animations = [];
 	if (arr.length <= 1) return arr;
 	quickSort(arr, 0, arr.length - 1, animations);
-	//test(); //for robust checking of correctness of algorithm
+	console.log(arr);
 	return animations;
 }
 
@@ -42,15 +51,17 @@ function findPivotBetween(mainArr, start, end, animations) {
 		animations.push([i + 1, j]);
 		animations.push([i + 1, j]);
 
-		if (mainArr[j] < pivotVal) {
+		if (mainArr[j] <= pivotVal) {
 			const tempVal = mainArr[++i];
 			mainArr[i] = mainArr[j];
 			mainArr[j] = tempVal;
+			animations.push([i, j, mainArr[i], mainArr[j]]);
 		}
 	}
 	const tempVal = mainArr[++i];
 	mainArr[i] = pivotVal;
 	mainArr[end] = tempVal;
+	animations.push([i, end, mainArr[i], mainArr[end]]);
 	return i; //pivotId
 }
 
@@ -73,11 +84,10 @@ function findPivotBetween(mainArr, start, end, animations) {
 
 // 		if (!compareArr(algoArr, jsArr)) {
 // 			val = false;
-// 			break;
 // 		}
+// 		if (val) console.log('sexyyyy Algo !');
+// 		else console.log('Broken Algorithm');
 // 	}
-// 	if (val) console.log('sexyyyy Algo !');
-// 	else console.log('Broken Algorithm');
 // }
 
 // function compareArr(arr1, arr2) {

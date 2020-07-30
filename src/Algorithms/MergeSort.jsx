@@ -1,6 +1,6 @@
 const SECONDARY_COLOR = 'red';
 const PRIMARY_COLOR = '#0c3f0c';
-const SPEED_MS = 10;
+const SPEED_MS = 1;
 
 export default (arr) => {
 	//let sorted = arr.slice().sort((a, b) => a - b);
@@ -48,7 +48,7 @@ function mergeSortHelper(
 	auxiliaryArray,
 	animations
 ) {
-	if (startIdx === endIdx) return;
+	if (startIdx >= endIdx) return;
 	const middleIdx = Math.floor((startIdx + endIdx) / 2);
 	mergeSortHelper(auxiliaryArray, startIdx, middleIdx, mainArray, animations);
 	mergeSortHelper(auxiliaryArray, middleIdx + 1, endIdx, mainArray, animations);

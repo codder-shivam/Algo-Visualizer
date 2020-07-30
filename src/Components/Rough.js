@@ -1,17 +1,16 @@
 import React from 'react';
 
-function solve(arr) {
-	for (let i = 0; i < arr.length; i++) {
-		//setTimeout(() => {
-		console.log(arr[i]);
-		//}, 1000);
-	}
-}
-
 function Rough() {
-	const arr = [1, 2, 3, 4, 5];
-
-	return <button onClick={solve(arr)}> click me</button>;
+	return (
+		<button
+			className='button'
+			onClick={() => {
+				return (document.getElementById('alpha').innerHTML =
+					"<video src='./jsbckgrnd.mp4' autoPlay='true' loop='true' width='100%' />");
+			}}>
+			display photo
+		</button>
+	);
 }
 
 export default Rough;

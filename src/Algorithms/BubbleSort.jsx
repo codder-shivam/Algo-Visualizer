@@ -1,6 +1,6 @@
 const SECONDARY_COLOR = 'red';
 const PRIMARY_COLOR = '#0c3f0c';
-const SPEED_MS = 1;
+const SPEED_MS = 0;
 
 export default (originalArr) => {
 	const animations = getAnimations(originalArr);

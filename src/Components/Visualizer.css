@@ -3,6 +3,9 @@
 	color: darkolivegreen;
 	text-shadow: rgb(19, 73, 8);
 }
+#bodyId {
+	background-color: black;
+}
 .button {
 	position: relative;
 	display: inline-block;
@@ -17,15 +20,23 @@
 	background: linear-gradient(90deg, #0162c8, #55e7fc);
 }
 .barContainer {
-	/*border: 2px solid black;
-	background-color: cornsilk;*/
+	border: 2px;
+	background-color: black;
+	border-radius: 5px;
 	position: absolute;
 	left: 100px;
 	top: 100px;
+
+	/*width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -40vw;
+	margin-right: -50vw;*/
 }
 
 .arrayBar {
-	width: 8px;
+	width: 2px;
 	background-color: #0c3f0c;
 	display: inline-block;
 	margin: 0 1px;

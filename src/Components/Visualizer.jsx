@@ -17,7 +17,7 @@ class Visualizer extends Component {
 
 	resetArray() {
 		const tmpArr = [];
-		for (let i = 5; i < 100; i++) {
+		for (let i = 5; i < 300; i++) {
 			tmpArr.push(randomize(10, 500));
 		}
 

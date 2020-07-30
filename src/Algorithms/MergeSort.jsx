@@ -3,8 +3,6 @@ const PRIMARY_COLOR = '#0c3f0c';
 const SPEED_MS = 1;
 
 export default (arr) => {
-	//let sorted = arr.slice().sort((a, b) => a - b);
-
 	const animations = getMergeSortAnimations(arr);
 
 	for (let i = 0; i < animations.length; i++) {

@@ -17,8 +17,8 @@ class Visualizer extends Component {
 
 	resetArray() {
 		const tmpArr = [];
-		for (let i = 5; i < 300; i++) {
-			tmpArr.push(randomize(10, 500));
+		for (let i = 0; i < 300; i++) {
+			tmpArr.push(randomize(10, 535));
 		}
 
 		this.setState({ arr: tmpArr });
@@ -33,6 +33,23 @@ class Visualizer extends Component {
 
 		return (
 			<>
+				<div className='header'>
+					<button className='button' onClick={() => this.resetArray()}>
+						Reset
+					</button>
+					<button className='button' onClick={() => MergeSort(this.state.arr)}>
+						Merge Sort
+					</button>
+					<button className='button' onClick={() => QuickSort(this.state.arr)}>
+						Quick Sort
+					</button>
+					<button className='button' onClick={() => HeapSort(this.state.arr)}>
+						Heap Sort
+					</button>
+					<button className='button' onClick={() => BubbleSort(this.state.arr)}>
+						Bubble Sort
+					</button>
+				</div>
 				<div className='barContainer'>
 					{arr.map((value, index) => (
 						<div
@@ -44,21 +61,6 @@ class Visualizer extends Component {
 							}}></div>
 					))}
 				</div>
-				<button className='button' onClick={() => this.resetArray()}>
-					Reset
-				</button>
-				<button className='button' onClick={() => MergeSort(this.state.arr)}>
-					Merge Sort
-				</button>
-				<button className='button' onClick={() => QuickSort(this.state.arr)}>
-					Quick Sort
-				</button>
-				<button className='button' onClick={() => HeapSort(this.state.arr)}>
-					Heap Sort
-				</button>
-				<button className='button' onClick={() => BubbleSort(this.state.arr)}>
-					Bubble Sort
-				</button>
 			</>
 		);
 	}

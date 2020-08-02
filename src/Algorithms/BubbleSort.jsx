@@ -37,7 +37,7 @@ export default (originalArr) => {
 function getAnimations(arr) {
 	if (arr.length <= 1) return arr;
 	const animations = [];
-	BubbleSort(arr.slice(), animations);
+	BubbleSort(arr, animations);
 	//test();
 	return animations;
 }

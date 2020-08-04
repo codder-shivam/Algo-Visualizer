@@ -28,6 +28,7 @@ function heapSort(mainArr, animations, length) {
 			mainArr[0],
 		];
 		heapify(mainArr, animations, 0, lastHeapNodeIdx);
+		animations.push();
 	}
 }
 

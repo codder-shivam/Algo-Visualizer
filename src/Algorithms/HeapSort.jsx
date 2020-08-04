@@ -4,7 +4,7 @@
 
 export default (originalArr) => {
 	const animations = getAnimations(originalArr);
-	console.log(animations);
+	console.log(originalArr);
 };
 
 function getAnimations(arr) {
@@ -14,35 +14,39 @@ function getAnimations(arr) {
 	return animations;
 }
 
-function heapSort(mainArr, animations, n) {
-	let lastParentIdx = Math.floor((n - 1) / 2);
-	let lastHeapNodeIdx = n - 1;
+function heapSort(mainArr, animations, length) {
+	let lastParentIdx = Math.floor(length / 2 - 1);
+	let lastHeapNodeIdx = length - 1;
 
-	for (let i = lastParentIdx; i >= 0; i++) {
-		heapify(mainArr, animations, i, n);
+	for (let i = lastParentIdx; i >= 0; i--) {
+		heapify(mainArr, animations, i, length);
 	}
 
 	for (; lastHeapNodeIdx > 0; lastHeapNodeIdx--) {
-		const temp = mainArr[lastHeapNodeIdx];
-		mainArr[lastHeapNodeIdx] = mainArr[0];
-		mainArr[0] = temp;
+		[mainArr[0], mainArr[lastHeapNodeIdx]] = [
+			mainArr[lastHeapNodeIdx],
+			mainArr[0],
+		];
 		heapify(mainArr, animations, 0, lastHeapNodeIdx);
 	}
 }
 
 function heapify(mainArr, animations, parentIdx, size) {
-	if (2 * parentIdx + 1 >= size) return;
-	const leftChildIdx = 2 * parentIdx + 1;
-	const rightChildIdx = leftChildIdx + 1;
+	let leftChildIdx = 2 * parentIdx + 1;
+	let rightChildIdx = leftChildIdx + 1;
 
 	let greater = parentIdx;
-	if (mainArr[leftChildIdx] > mainArr[greater]) greater = leftChildIdx;
-	if (mainArr[rightChildIdx] > mainArr[greater]) greater = rightChildIdx;
+
+	if (leftChildIdx < size && mainArr[leftChildIdx] > mainArr[greater])
+		greater = leftChildIdx;
+	if (rightChildIdx < size && mainArr[rightChildIdx] > mainArr[greater])
+		greater = rightChildIdx;
 
 	if (greater !== parentIdx) {
-		const tmp = mainArr[greater];
-		mainArr[greater] = mainArr[parentIdx];
-		mainArr[parentIdx] = tmp;
+		[mainArr[greater], mainArr[parentIdx]] = [
+			mainArr[parentIdx],
+			mainArr[greater],
+		];
+		heapify(mainArr, animations, greater, size);
 	}
-	heapify(mainArr, animations, greater, size);
 }

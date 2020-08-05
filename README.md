@@ -1,3 +1,10 @@
+<h1> SORTING VISUALIZER <h1>
+  
+This project is build to compare working of different sortng algorithms on a varied (unsorted)dataset. and then to see the varied time taken by different algorithms on same input. 
+
+It can visualize all the sorting occuring at run time.
+I have used setTimeout() method of javascript to show the ansynchronous visualization of the comparisons and working of sorting algorithms.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

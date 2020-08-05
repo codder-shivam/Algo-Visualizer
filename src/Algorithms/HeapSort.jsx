@@ -22,7 +22,10 @@ export default (originalArr) => {
 			color = cur_color;
 		} else {
 			const [barOneHeight, barTwoHeight] = [animations[i][2], animations[i][3]];
+
 			setTimeout(() => {
+				if (animations[i].length === 5)
+					barTwoStyle.backgroundColor = FINAL_COLOR;
 				barOneStyle.height = `${barOneHeight}px`;
 				barTwoStyle.height = `${barTwoHeight}px`;
 			}, i * SPEED_MS);
@@ -52,7 +55,13 @@ function heapSort(mainArr, animations, length) {
 		];
 		animations.push([0, lastHeapNodeIdx]);
 		animations.push([0, lastHeapNodeIdx]);
-		animations.push([0, lastHeapNodeIdx, mainArr[0], mainArr[lastHeapNodeIdx]]);
+		animations.push([
+			0,
+			lastHeapNodeIdx,
+			mainArr[0],
+			mainArr[lastHeapNodeIdx],
+			0,
+		]);
 
 		heapify(mainArr, animations, 0, lastHeapNodeIdx);
 	}

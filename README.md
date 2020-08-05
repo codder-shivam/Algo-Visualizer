@@ -1,6 +1,8 @@
-<h1> SORTING VISUALIZER <h1>
+<h1> SORTING VISUALIZER </h1>
   
-This project is build to compare working of different sortng algorithms on a varied (unsorted)dataset. and then to see the varied time taken by different algorithms on same input. 
+This project is build to compare working of different sorting algorithms on a varied (unsorted) dataset. and then to see the varied time taken by different algorithms on same input. 
+
+here, dataset is a large range of array bars shown as growing vertically upward, of random heights and same width. these array of bars are generated using the random function method of the js. 
 
 It can visualize all the sorting occuring at run time.
 I have used setTimeout() method of javascript to show the ansynchronous visualization of the comparisons and working of sorting algorithms.
